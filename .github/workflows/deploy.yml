@@ -28,5 +28,5 @@ jobs:
 
       - name: Instantiate and configure EC2 instance
         run: |
-          aws ec2 run-instances --image-id ami-00ca32bbc84273381 --instance-type t3.micro --associate-public-ip-address
+          aws ec2 run-instances --image-id ami-0b0012dad04fbe3d7 --instance-type t3.micro --associate-public-ip-address
           
