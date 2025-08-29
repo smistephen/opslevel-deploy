@@ -1,4 +1,4 @@
-name: Test AWS Credentials
+name: Deploy
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
           - prod
 
 jobs:
-  test-aws-credentials:
+  set-up-aws-credentials:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -26,6 +26,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1 
 
-      - name: Test AWS credentials
+      - name: Instantiate EC2 instance
         run: |
           aws sts get-caller-identity
+          
