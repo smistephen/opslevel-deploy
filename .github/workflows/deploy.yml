@@ -26,7 +26,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1 
 
-      - name: Instantiate EC2 instance
+      - name: Instantiate and configure EC2 instance
         run: |
-          aws sts get-caller-identity
+          aws ec2 run-instances --image-id ami-0abcdef1234567890 --instance-type t2.micro --associate-public-ip-address
           
