@@ -12,7 +12,9 @@ func main() {
 
 	go func() {
 		http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-			http.Redirect(w, req, "https://"+req.Host+req.URL.Path, http.StatusMovedPermanently)
+			if req.URL.Scheme != "https" {
+				http.Redirect(w, req, "https://"+req.Host+req.URL.Path, http.StatusMovedPermanently)
+			}
 		})
 
 		log.Println("starting server on port :80")
