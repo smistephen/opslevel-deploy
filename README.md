@@ -2,6 +2,7 @@ Ideally, the GitHub Action in this repo would be a one-click deploy of the appli
 
 But there seems to be some odd discrepancy between the UI and CLI, because providing the following data via the UI works, but not via the CLI:
 
+```
 #!/bin/bash
 export ENV="test"
 export GOCACHE="/home/admin/.cache/go-build"
@@ -14,3 +15,4 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout keyfile.key -out crtfile.crt -subj "/C=CA/ST=NS/L=Halifax/O=SteveLLC/OU=Testing/CN=$HOSTNAME"
 go build -v main.go
 ./main
+```
