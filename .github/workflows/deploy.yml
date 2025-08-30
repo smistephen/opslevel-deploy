@@ -28,5 +28,13 @@ jobs:
 
       - name: Instantiate and configure EC2 instance
         run: |
-          aws ec2 run-instances --image-id ami-0b0012dad04fbe3d7 --instance-type t3.micro --associate-public-ip-address
-          
+          aws ec2 run-instances \
+          --image-id "ami-0b0012dad04fbe3d7" \
+          --instance-type "t3.micro" \
+          --key-name "testpair" \
+          --user-data "IyEvYmluL2Jhc2gKZXhwb3J0IEVOVj0idGVzdCIKZXhwb3J0IEdPQ0FDSEU9Ii9ob21lL2FkbWluLy5jYWNoZS9nby1idWlsZCIKYXB0IHVwZGF0ZQphcHQgaW5zdGFsbCBnaXQgLXkKZ2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9zbWlzdGVpaGVuL29wc2xldmVsLWRlcGxveS5naXQKY2Qgb3BzbGV2ZWwtZGVwbG95LwphcHQgaW5zdGFsbCBnb2xhbmcgLXkKVE9LRU49YGN1cmwgLVggUFVUICJodHRwOi8vMTY5LjI1NC4xNjkuMjU0L2xhdGVzdC9hcGkvdG9rZW4iIC1IICJYLWF3cy1lYzItbWV0YXRhcy10b2tlbjogJFRPS0VOIiBodHRwOi8vMTY5LjI1NC4xNjkuMjU0L2xhdGVzdC9tZXRhLWRhdGEvcHVibGljLWhvc3RuYW1lYApvcGVuc3NsIHJlcSAteDUwOSAtbm9kZXMgLWRheXMgMzY1IC1uZXdrZXkgcnNhOjIwNDggLWtleW91dCBrZXlmaWxlLmtleSAtb3V0IGNydGZpbGUuY3J0IC1zdWJqICIvQz1DQS9TVD1OUy9MPUhhbGlmYXgvTz1TdGV2ZUxMQy9PVT1UZXN0aW5nL0NOPSRIT1NSTkFNRSIKZ28gYnVpbGQgLXYgbWFpbi5nbwouL21haW4=" \
+          --network-interfaces '{"AssociatePublicIpAddress":true,"DeviceIndex":0,"Groups":["sg-06abf3354c480dd5a"]}' \
+          --credit-specification '{"CpuCredits":"unlimited"}' \
+          --metadata-options '{"HttpEndpoint":"enabled","HttpPutResponseHopLimit":2,"HttpTokens":"required"}' \
+          --private-dns-name-options '{"HostnameType":"ip-name","EnableResourceNameDnsARecord":true,"EnableResourceNameDnsAAAARecord":false}' \
+          --count "1"
