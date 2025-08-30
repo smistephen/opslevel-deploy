@@ -12,8 +12,8 @@ apt install git -y
 git clone https://github.com/smistephen/opslevel-deploy.git
 cd opslevel-deploy/
 apt install golang -y
-TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && HOSTNAME=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-hostname`
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout keyfile.key -out crtfile.crt -subj "/C=CA/ST=NS/L=Halifax/O=SteveLLC/OU=Testing/CN=$HOSTNAME"
+TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && HOSTNAME=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-hostname` # Instance metadata is magic (and even moreso now that they've fixed the glaring security hole): https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html#instance-metadata-ex-2
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout keyfile.key -out crtfile.crt -subj "/C=CA/ST=NS/L=Halifax/O=SteveLLC/OU=Testing/CN=$HOSTNAME" # I'm sure there's a way to make Let's Encrypt work with the built-in Go web server, but I did not have time to find it.
 go build -v main.go
 ./main
 ```
