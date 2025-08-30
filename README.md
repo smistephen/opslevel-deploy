@@ -1,6 +1,6 @@
 Ideally, the GitHub Action in this repo would be a one-click deploy of the application.
 
-But there seems to be some odd discrepancy between the UI and CLI, because providing the following data via the UI works, but not via the CLI:
+But there seems to be some odd discrepancy between the UI and CLI, because providing the following `user-data` via the UI works, but not via the CLI:
 
 ```
 #!/bin/bash
