@@ -6,7 +6,7 @@ Here is the startup script that got base64ed _(obviously with two different valu
 ```
 #!/bin/bash
 export ENV="test"
-export GOCACHE="/home/admin/.cache/go-build"
+export GOCACHE="/home/admin/.cache/go-build" # Needed because of where this script runs in the boot sequence.
 apt update
 apt install git -y
 git clone https://github.com/smistephen/opslevel-deploy.git
