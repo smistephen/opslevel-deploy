@@ -24,6 +24,8 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
 # This could also easily be a certbot --certonly command.
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout keyfile.key -out crtfile.crt -subj "/C=CA/ST=NS/L=Halifax/O=SteveLLC/OU=Testing/CN=$HOSTNAME" 
 
+# Could toggle verbose on/off based on env in future.
+# For this exercise it's what helped find the GOCACHE error.
 go build -v main.go
 ./main
 ```
