@@ -1,9 +1,6 @@
-Ideally, the GitHub Action in this repo would be a one-click deploy of the application.
+This repo contains a GitHub Action that deploys the requested application to either dev or prod.
 
-But there seems to be some odd discrepancy between the AWS Console and AWS CLI, because providing the following `user-data` via the console works, but not via the CLI.
-
-My best examination of the [error logs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html?icmpid=docs_ec2_console#user-data-shell-scripts) shows that it receives an authentication error when it attempts to clone the git repo. Reviewing the script on the server shows it seems to have been transferred intact, so I'm unsure where the discrepancy is.
-
+Here is the startup script that got base64ed (obviously with two different values for `ENV`). A potential future improvement would be to have it stored in the repo and base64ed at runtime:
 ```
 #!/bin/bash
 export ENV="test"
