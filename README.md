@@ -2,7 +2,7 @@ Ideally, the GitHub Action in this repo would be a one-click deploy of the appli
 
 But there seems to be some odd discrepancy between the UI and CLI, because providing the following `user-data` via the UI works, but not via the CLI.
 
-My best examination of the error logs shows that it receives an authentication error when it attempts to clone the git repo. Reviewing the script shows it seems to have been communicated to the server intact, so I'm unsure where the discrepancy is.
+My best examination of the error logs shows that it receives an authentication error when it attempts to clone the git repo. Reviewing the script on the server shows it seems to have been transferred intact, so I'm unsure where the discrepancy is.
 
 ```
 #!/bin/bash
