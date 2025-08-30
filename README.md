@@ -2,7 +2,7 @@ This repo contains a GitHub Action that deploys the requested application to eit
 
 Honestly, the hardest part of this exercise was deciding which of the seventeen ways you could theoretically deploy a Go app to use. Containers? Sure. Terraform? Why not? But I always love the simplicity of a one-button solution, so that's what I chose.
 
-Here is the startup script that got base64ed _(obviously with two different values for `ENV`)_. A potential future improvement would be to have it stored in the repo and base64ed at runtime:
+Here is the startup script that got base64ed _(obviously with two different values for `ENV`)_. A potential future improvement would be to have it stored in the repo and base64ed at runtime after the envvar has been interpolated:
 ```
 #!/bin/bash
 export ENV="test"
